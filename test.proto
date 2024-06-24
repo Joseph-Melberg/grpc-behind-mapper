@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+service Demo {
+  rpc GetNumber(GetRequest) returns (NumberDto);
+  rpc GetNumberStream(Empty) returns (stream NumberDto);
+  rpc GetNumbers(Empty) returns (NumbersDto);
+  rpc SetLetter(SetRequest) returns (Empty);
+}
+
+message GetRequest {
+    int32 value = 1;
+}
+
+message NumberDto {
+    int32 value = 1;
+}
+
+message NumbersDto {
+    repeated NumberDto numbers = 1;
+}
+
+message SetRequest {
+    string value = 1;
+}
+
+message Empty {
+
+}
